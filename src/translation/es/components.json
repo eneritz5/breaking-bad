@@ -1,0 +1,14 @@
+{
+    "loader_cargando_text": "Cargando...",
+    "loader_cargando_text_quote": "Cargando otra frase...",
+    "back_button": "Volver",
+    "no_quote": "Este personaje no tiene ninguna frase",
+    "other_quote": "Otra frase",
+    "character_birthday": "Cumpleaños",
+    "character_nickname": "Nombre",
+    "character_occupation": "Ocupación",
+    "character_portrayed": "Actriz/Actor",
+    "character_appearance": "Apariciones",
+    "character_status": "Estado",
+    "character_quote": "Frase"
+}
