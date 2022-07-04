@@ -139,3 +139,37 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
+
+.paginador {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginador-button-active{
+  color: #fff;
+  background-color: green;
+  margin: 10px;
+  font-family: "GentiumBookPlusBold";
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 2px;
+  border: 0;
+}
+
+.paginador-button-disabled{
+  color: #fff;
+  background-color: grey;
+  margin: 10px;
+  font-family: "GentiumBookPlusBold";
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 2px;
+  border: 0;
+}
+
+.paginador >p{
+  margin: 10px;
+  font-family: "GentiumBookPlusRegular";
+}
