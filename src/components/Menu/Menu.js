@@ -7,7 +7,7 @@ export const Menu = () => {
 
     return (
         <div className='header_menu_container'>
-            <img src={imagenHeader} className='img_header' />
+            <img src={imagenHeader} className='img_header' alt='header' />
             <div className='header_lenguage'>
                 <button id='english' onClick={() => dispatch(changeLenguageToSpanish())}>ES</button><button data-testid='english' onClick={() => dispatch(changeLenguageToEnglish())}>EN</button>
             </div>
