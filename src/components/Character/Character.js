@@ -7,6 +7,8 @@ import { Loader } from '../Loader/Loader';
 import { Menu } from '../Menu/Menu';
 import { loadingApp, loadingAppComplete } from '../../charactersState';
 import axios from 'axios';
+import { URL_FETCH_QUOTE, URL_FETCH_CHARACTERS } from '../../constantes';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const Character = (props) => {
     const [randomQuote, setRandomQuote] = useState('');
@@ -16,8 +18,8 @@ export const Character = (props) => {
     const { t } = useTranslation();
     const { id } = useParams();
     const dispatch = useDispatch();
-    const urlQuotte = 'https://www.breakingbadapi.com/api/quote/random?author='
-    const urlCharacter = 'https://www.breakingbadapi.com/api/characters/'
+    const urlQuotte = URL_FETCH_QUOTE;
+    const urlCharacter = URL_FETCH_CHARACTERS;
     const loaderText = t("components:loader_cargando_text_quote");
 
     const breakingBadState = useSelector((state) => { return state })
@@ -43,28 +45,31 @@ export const Character = (props) => {
             const data = await result.json();
             changeHasRandomQuotes(data)
             dispatch(loadingAppComplete());
-
         } catch (error) {
             dispatch(loadingAppComplete());
-            console.log(error)
+            toast.error(t("components:toast_error"))
         }
     }
 
     useEffect(() => {
         try {
+            dispatch(loadingApp());
             axios.get(urlCharacter + id).then((res) => {
                 setCharacterToPrint(res.data[0]);
                 const name = res.data[0].name;
                 setQuery(name.replace(' ', '+'));
             })
+            dispatch(loadingAppComplete());
         } catch (error) {
-            console.log(error)
+            dispatch(loadingAppComplete());
+            toast.error(t("components:toast_error"))
         }
         obtenerFrase();
     }, [id])
 
     return (
         <div>
+            <Toaster position='bottom-center' />
             {
                 isLoading ? <Loader text={loaderText} />
                     :
@@ -73,18 +78,18 @@ export const Character = (props) => {
                         <a href='/'>{t("components:back_button")}</a>
                         <div className='align-s-center character-info'>
                             <h1>{characterToPrint.name}</h1>
-                            <img src={characterToPrint.img} className="character_img_page" alt="character img" />
+                            <img src={characterToPrint.img} className="character_img_page" alt="character breaking bad" />
                             <div className='character_info'>
-                            <p>{t("components:character_birthday")}: {characterToPrint.birthday}</p>
-                            <p>{t("components:character_nickname")}: {characterToPrint.nickname}</p>
-                            <p>{t("components:character_occupation")}: {characterToPrint.occupation}</p>
-                            <p>{t("components:character_portrayed")}: {characterToPrint.portrayed}</p>
-                            <p>{t("components:character_appearance")}: {characterToPrint.appearance}</p>
-                            <p>{t("components:character_status")}: {characterToPrint.status}</p>
-                            <p>{t("components:character_quote")}: {randomQuote}</p>
-                            {hasRandomQuotes &&
-                                <button data-testid='btn_quotte' onClick={() => obtenerFrase()}>{t("components:other_quote")}</button>
-                            }
+                                <p>{t("components:character_birthday")}: {characterToPrint.birthday}</p>
+                                <p>{t("components:character_nickname")}: {characterToPrint.nickname}</p>
+                                <p>{t("components:character_occupation")}: {characterToPrint.occupation}</p>
+                                <p>{t("components:character_portrayed")}: {characterToPrint.portrayed}</p>
+                                <p>{t("components:character_appearance")}: {characterToPrint.appearance}</p>
+                                <p>{t("components:character_status")}: {characterToPrint.status}</p>
+                                <p>{t("components:character_quote")}: {randomQuote}</p>
+                                {hasRandomQuotes &&
+                                    <button data-testid='btn_quotte' onClick={() => obtenerFrase()}>{t("components:other_quote")}</button>
+                                }
                             </div>
                         </div>
                     </div>

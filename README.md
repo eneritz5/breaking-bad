@@ -68,3 +68,21 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+<!-- EXPLICACIÓN:
+
+Al iniciar la app, entra por el useEffect y se dispara la acción de getCharactersFetch,
+esta función llama a getCharactersFetchData que hace el fetch de forma sincrona con el yield y 
+con el put getCharactersComplete metemos el payload(los personajes) en nuestro state(global).
+
+
+He declarado el state con API Context y lo iremos cambiando con las acciones que mencionamos en characterState.js
+
+Para crear una pantalla por personaje he decidido coger el id de cada personaje y que se vaya creando
+de forma dinámica, de esta forma utilizamos una pantalla para pintar todos los personajes con Character.js. Al entrar en esta pantalla cogemos el id de la url y haremos el fetch para obtener una frase del personaje con obtenerFrase.
+
+Para la traducción he utilizado i18next, que mediante archivos json nos permite hacer traducciones de forma fácil, además el idioma también se irá cambiando en el estado.
+
+ -->

@@ -1,8 +1,9 @@
 import { put, takeEvery } from 'redux-saga/effects'
 import { getCharactersComplete } from './charactersState';
+import { URL_FETCH_CHARACTERS } from './constantes';
 
 function* getCharactersFetchData() {
-    const characters = yield fetch('https://www.breakingbadapi.com/api/characters/')
+    const characters = yield fetch(URL_FETCH_CHARACTERS)
     const charactersJson = yield characters.json();
     yield put(getCharactersComplete(charactersJson));
 }

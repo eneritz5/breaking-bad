@@ -10,5 +10,7 @@
     "character_portrayed": "Actriz/Actor",
     "character_appearance": "Apariciones",
     "character_status": "Estado",
-    "character_quote": "Frase"
+    "character_quote": "Frase",
+    "toast_error": "Algo ha ido mal, inténtelo de nuevo"
+
 }
