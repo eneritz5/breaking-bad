@@ -11,6 +11,8 @@
     "character_appearance": "Apariciones",
     "character_status": "Estado",
     "character_quote": "Frase",
-    "toast_error": "Algo ha ido mal, inténtelo de nuevo"
+    "toast_error": "Algo ha ido mal, inténtelo de nuevo",
+    "previus_button": "Anterior",
+    "next_button": "Siguiente"
 
 }

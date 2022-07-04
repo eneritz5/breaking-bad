@@ -11,6 +11,8 @@
     "character_appearance": "Appearance",
     "character_status": "Status",
     "character_quote": "Quote",
-    "toast_error": "Something went wrong, try it again"
+    "toast_error": "Something went wrong, try it again",
+    "previus_button": "Previus",
+    "next_button": "Next"
 
 }

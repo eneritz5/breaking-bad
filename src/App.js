@@ -52,9 +52,9 @@ function App() {
             }
           </div>
           <div className='paginador'>
-            <button className={charactersToShow === 0 ? 'paginador-button-disabled' : 'paginador-button-active'} onClick={() => { pageBefore() }} disabled={charactersToShow <= 0}>Anterior</button>
+            <button className={charactersToShow === 0 ? 'paginador-button-disabled' : 'paginador-button-active'} onClick={() => { pageBefore() }} disabled={charactersToShow <= 0}>{t("components:previus_button")}</button>
             <p>{charactersToShow / 3 + 1}</p>
-            <button className={charactersToShow >= characters.length-3 ? 'paginador-button-disabled' : 'paginador-button-active'} onClick={() => { nextPage() }} disabled={charactersToShow >= characters.length-3}>Siguiente</button>
+            <button className={charactersToShow >= characters.length-3 ? 'paginador-button-disabled' : 'paginador-button-active'} onClick={() => { nextPage() }} disabled={charactersToShow >= characters.length-3}>{t("components:next_button")}</button>
           </div>
         </div>
       }
